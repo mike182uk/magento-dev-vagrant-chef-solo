@@ -1,0 +1,7 @@
+site "http://community.opscode.com/api/v1"
+
+cookbook "apt"
+cookbook "apache2"
+cookbook "php"
+cookbook "mysql"
+cookbook "database"

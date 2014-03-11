@@ -1,0 +1,17 @@
+<VirtualHost *:80>
+    ServerName <%= @params[:server_name] %>
+
+    DocumentRoot <%= @params[:docroot] %>
+
+    <Directory <%= @params[:docroot] %>>
+        # enable the .htaccess rewrites
+        AllowOverride All
+        Order allow,deny
+        Allow from All
+    </Directory>
+
+    ErrorLog /var/log/apache2/error.log
+    CustomLog /var/log/apache2/access.log combined
+
+    php_value "date.timezone" "Europe/London"
+</VirtualHost>
