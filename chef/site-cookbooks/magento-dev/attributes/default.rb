@@ -1,0 +1,6 @@
+default['magento_dev']['app_name'] = 'magento'
+default['magento_dev']['server_name'] = 'www.magento.dev'
+default['magento_dev']['docroot'] = '/var/www/magento'
+default['magento_dev']['db_name'] = 'magento'
+default['magento_dev']['db_user'] = 'magento'
+default['magento_dev']['db_pass'] = 'magento'

@@ -1,23 +1,22 @@
 Vagrant.configure("2") do |config|
+    # Virtualbox config
+    config.vm.provider :virtualbox do |vb|
+        vb.customize ["modifyvm", :id, "--memory", "1024"]
+    end
+
     # Vagrant plugins config
-    if Vagrant.has_plugin?("vagrant-cachier")
-        config.cache.scope = :box
-    end
-
-    if Vagrant.has_plugin?("vagrant-omnibus")
-        config.omnibus.chef_version = :latest
-    end
-
-    if Vagrant.has_plugin?("vagrant-librarian-chef")
-        config.librarian_chef.cheffile_dir = "chef"
-    end
+    config.cache.scope = :box
+    config.omnibus.chef_version = :latest
+    config.librarian_chef.cheffile_dir = "chef"
+    config.hostsupdater.remove_on_suspend = true
 
     # Box
     config.vm.box = "precise64"
     config.vm.box_url = "http://files.vagrantup.com/precise64.box"
 
     # Networking
-    config.vm.network :private_network, ip: "33.33.33.10"
+    config.vm.network :private_network, ip: "10.10.10.2"
+    config.vm.hostname = "www.magento.dev"
 
     # Synced folders
     config.vm.synced_folder "./", "/var/www", type: "nfs"
@@ -37,9 +36,10 @@ Vagrant.configure("2") do |config|
         chef.add_recipe "php"
         chef.add_recipe "php::module_mysql"
         chef.add_recipe "apache2::mod_php5"
-        chef.add_recipe "app::vhost"
-        chef.add_recipe "app::db"
-        chef.add_recipe "app::magento"
+        chef.add_recipe "magento-dev::packages"
+        chef.add_recipe "magento-dev::vhost"
+        chef.add_recipe "magento-dev::db"
+        chef.add_recipe "magento-dev::installation-script"
 
         chef.json = {
             :mysql => {

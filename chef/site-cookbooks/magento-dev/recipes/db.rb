@@ -7,16 +7,16 @@ mysql_connection = {
 }
 
 # Create database
-mysql_database node["app"]["db_name"] do
+mysql_database node["magento_dev"]["db_name"] do
     connection mysql_connection
     action :create
 end
 
 # Create database user
-mysql_database_user node["app"]["db_user"] do
+mysql_database_user node["magento_dev"]["db_user"] do
     connection mysql_connection
-    password node["app"]["db_pass"]
-    database_name node["app"]["db_name"]
+    password node["magento_dev"]["db_pass"]
+    database_name node["magento_dev"]["db_name"]
     privileges [:all]
     action :grant
 end
