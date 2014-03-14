@@ -19,23 +19,37 @@ Development box configured to run Magento CE.
 		- **database:** magento
 		- **user:** magento
 		- **password:** magento
+	- database can be accessed from the host machine:
+		- **host:** 10.10.10.2
+		- use user + password above
+	- root user for the database is:
+		- **user:** root
+		- **password:** root
 - Includes script to install **Magento CE 1.8.1.0** + sample data
 
 ## Prerequisites
 
-1. A Ruby environment with the following Gems installed:
+- A Ruby environment with the following Gems installed:
 
 	- [Bundler](http://bundler.io/)
 
-2. [Virtualbox](https://www.virtualbox.org/)
+- [Virtualbox](https://www.virtualbox.org/)
 
-3. [Vagrant](http://www.vagrantup.com/) >=1.5 with the following plugins installed:
+- [Vagrant](http://www.vagrantup.com/) >=1.5 with the following plugins installed:
 
 	- [vagrant-cachier](https://github.com/fgrehm/vagrant-cachier)
 	- [vagrant-ombnibus](https://github.com/schisamo/vagrant-omnibus)
 	- [vagrant-librarian-chef](https://github.com/jimmycuadra/vagrant-librarian-chef)
 	- [vagrant-vbguest](https://github.com/dotless-de/vagrant-vbguest)
 	- [vagrant-hostsupdater](https://github.com/cogitatio/vagrant-hostsupdater)
+
+	```bash
+	vagrant plugin install vagrant-cachier
+	vagrant plugin install vagrant-omnibus
+	vagrant plugin install vagrant-libraian-chef
+	vagrant plugin install vagrant-vbguest
+	vagrant plugin install vagrant-hostsupdater
+	```
 
 ## Usage
 
@@ -61,4 +75,5 @@ Navigate to `http://www.magento.dev` to finish setting up Magento.
 
 ## Notes
 
-I have only tested this on OS X (10.9). In theory it should work on most operating systems, although i have a feeling Windows will have a problem using NFS for the synced folders.
+I have only tested this on OS X (10.9). In theory it should work on most operating systems, although i have a feeling Windows will have a problem using NFS for synced folders.
+See NFS alternatives [here](https://docs.vagrantup.com/v2/synced-folders/basic_usage.html).

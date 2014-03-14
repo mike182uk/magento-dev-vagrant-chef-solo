@@ -37,6 +37,7 @@ Vagrant.configure("2") do |config|
         chef.add_recipe "php::module_mysql"
         chef.add_recipe "apache2::mod_php5"
         chef.add_recipe "magento-dev::packages"
+        chef.add_recipe "magento-dev::apache-php-ini"
         chef.add_recipe "magento-dev::vhost"
         chef.add_recipe "magento-dev::db"
         chef.add_recipe "magento-dev::installation-script"
@@ -46,11 +47,14 @@ Vagrant.configure("2") do |config|
                 :server_root_password => "root",
                 :server_debian_password => "root",
                 :server_repl_password => "root",
-                :mysql_bin => "/usr/bin/mysql"
+                :mysql_bin => "/usr/bin/mysql",
+                :bind_address => "0.0.0.0"
             },
             :php => {
                 :directives => {
-                    "date.timezone" => "Europe/London"
+                    "date.timezone" => "Europe/London",
+                    "memory_limit" => "256M",
+                    "safe_mode" => "Off"
                 }
             }
         }

@@ -1,4 +1,4 @@
-pkgs = %w{ curl php5-curl php5-mcrypt php5-gd }
+pkgs = %w{ php5-curl php5-mcrypt php5-gd }
 
 pkgs.each do |pkg|
     package pkg do
