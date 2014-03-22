@@ -1,6 +1,7 @@
 Vagrant.configure("2") do |config|
     # Virtualbox config
     config.vm.provider :virtualbox do |vb|
+        # Increase virtual machine memory
         vb.customize ["modifyvm", :id, "--memory", "1024"]
     end
 
