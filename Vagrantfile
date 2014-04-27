@@ -21,6 +21,7 @@ Vagrant.configure("2") do |config|
 
     # Synced folders
     config.vm.synced_folder "./", "/var/www", type: "nfs"
+    config.vm.hostname = "magento-dev"
 
     # Provision via chef solo
     config.vm.provision :chef_solo do |chef|
