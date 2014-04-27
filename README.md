@@ -13,6 +13,9 @@ Development box configured to run Magento CE.
 	- iconv
 	- curl
 	- SOAP
+- Other useful packages installed:
+	- git
+	- vim
 - Apache virtual host + MySQL database setup
 	- access via `www.magento.dev` on the host machine
 	- database details:
@@ -25,11 +28,13 @@ Development box configured to run Magento CE.
 	- root user for the database is:
 		- **user:** root
 		- **password:** root
-	- Xdebug installed and setup to allow remote debugging
-	    - To remote debug use the following values in your ide / debugger:
-	        - **host:** 10.10.10.2
-	        - **remote port:** 9000
-	        - **ide key:** lamp-vagrant-dev
+- Composer installed and available globally
+	- Sample `composer.json` included that contains useful QA + static analysis tools.
+- Xdebug installed and setup to allow remote debugging
+    - To remote debug use the following values in your ide / debugger:
+        - **host:** 10.10.10.2
+        - **remote port:** 9000
+        - **ide key:** lamp-vagrant-dev
 - Includes script to install **Magento CE 1.8.1.0** + sample data
 
 ## Prerequisites

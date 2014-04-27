@@ -31,6 +31,8 @@ Vagrant.configure("2") do |config|
         ]
 
         chef.add_recipe "apt"
+        chef.add_recipe "git"
+        chef.add_recipe "vim"
         chef.add_recipe "apache2"
         chef.add_recipe "apache2::mod_rewrite"
         chef.add_recipe "apache2::mod_alias"
@@ -39,6 +41,7 @@ Vagrant.configure("2") do |config|
         chef.add_recipe "php::module_mysql"
         chef.add_recipe "xdebug"
         chef.add_recipe "apache2::mod_php5"
+        chef.add_recipe "composer"
         chef.add_recipe "magento-dev::packages"
         chef.add_recipe "magento-dev::apache-php-ini"
         chef.add_recipe "magento-dev::vhost"

@@ -14,6 +14,14 @@ SITE
       mysql (>= 1.3.0)
       postgresql (>= 1.0.0)
       xfs (>= 0.0.0)
+    dmg (2.2.0)
+    git (4.0.2)
+      build-essential (>= 0.0.0)
+      dmg (>= 0.0.0)
+      runit (>= 1.0.0)
+      windows (>= 0.0.0)
+      yum (~> 3.0)
+      yum-epel (>= 0.0.0)
     homebrew (1.5.4)
     iis (2.0.2)
       windows (>= 1.2.6)
@@ -37,6 +45,11 @@ SITE
       apt (>= 0.0.0)
       build-essential (>= 0.0.0)
       openssl (>= 0.0.0)
+    runit (1.5.10)
+      build-essential (>= 0.0.0)
+      yum (~> 3.0)
+      yum-epel (>= 0.0.0)
+    vim (1.1.2)
     windows (1.30.0)
       chef_handler (>= 0.0.0)
     xfs (1.1.0)
@@ -54,11 +67,21 @@ GIT
     xdebug (0.0.1)
       php (>= 0.0.0)
 
+GIT
+  remote: https://github.com/zircote/chef-composer
+  ref: master
+  sha: 007912436c79f0b0c1f2d1732413ac42279811c2
+  specs:
+    composer (0.1.0)
+
 DEPENDENCIES
   apache2 (>= 0)
   apt (>= 0)
+  composer (>= 0)
   database (>= 0)
+  git (>= 0)
   mysql (>= 0)
   php (>= 0)
+  vim (>= 0)
   xdebug (>= 0)
 
