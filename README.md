@@ -34,7 +34,7 @@ Development box configured to run Magento CE.
     - To remote debug use the following values in your ide / debugger:
         - **host:** 10.10.10.2
         - **remote port:** 9000
-        - **ide key:** lamp-vagrant-dev
+        - **ide key:** magento-dev
 - Includes script to install **Magento CE 1.8.1.0** + sample data
 
 ## Prerequisites
