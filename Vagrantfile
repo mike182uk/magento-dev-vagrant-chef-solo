@@ -17,11 +17,10 @@ Vagrant.configure("2") do |config|
 
     # Networking
     config.vm.network :private_network, ip: "10.10.10.2"
-    config.vm.hostname = "www.magento.dev"
+    config.vm.hostname = "magento-dev"
 
     # Synced folders
     config.vm.synced_folder "./", "/var/www", type: "nfs"
-    config.vm.hostname = "magento-dev"
 
     # Provision via chef solo
     config.vm.provision :chef_solo do |chef|
