@@ -36,6 +36,7 @@ Vagrant.configure("2") do |config|
         chef.add_recipe "mysql::server"
         chef.add_recipe "php"
         chef.add_recipe "php::module_mysql"
+        chef.add_recipe "xdebug"
         chef.add_recipe "apache2::mod_php5"
         chef.add_recipe "magento-dev::packages"
         chef.add_recipe "magento-dev::apache-php-ini"
@@ -57,6 +58,11 @@ Vagrant.configure("2") do |config|
                     "memory_limit" => "256M",
                     "safe_mode" => "Off"
                 }
+            },
+            :xdebug => {
+                :idekey => "magento-dev",
+                :remote_enable => 1,
+                :remote_connect_back => 1
             }
         }
     end

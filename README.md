@@ -25,6 +25,11 @@ Development box configured to run Magento CE.
 	- root user for the database is:
 		- **user:** root
 		- **password:** root
+	- Xdebug installed and setup to allow remote debugging
+	    - To remote debug use the following values in your ide / debugger:
+	        - **host:** 10.10.10.2
+	        - **remote port:** 9000
+	        - **ide key:** lamp-vagrant-dev
 - Includes script to install **Magento CE 1.8.1.0** + sample data
 
 ## Prerequisites
