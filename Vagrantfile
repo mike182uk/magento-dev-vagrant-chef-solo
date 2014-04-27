@@ -60,7 +60,7 @@ Vagrant.configure("2") do |config|
                 :directives => {
                     "date.timezone" => "Europe/London",
                     "memory_limit" => "256M",
-                    "safe_mode" => "Off"
+                    "safe_mode" => "0"
                 }
             },
             :xdebug => {
