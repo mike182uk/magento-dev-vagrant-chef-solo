@@ -1,2 +1,4 @@
-chef/tmp
-chef/cookbooks
+/chef/tmp/
+/chef/cookbooks/
+/bin/
+/vendor/
