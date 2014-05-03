@@ -13,9 +13,10 @@ Development box configured to run Magento CE.
     - iconv
     - curl
     - SOAP
-- Other useful packages installed:
+- Other misc packages installed:
     - git
     - vim
+    - apc
 - Apache virtual host + MySQL database setup
     - access via `www.magento.dev` or `magento.dev` on the host machine
     - database details:
