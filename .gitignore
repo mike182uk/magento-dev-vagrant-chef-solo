@@ -2,3 +2,4 @@
 /chef/cookbooks/
 /bin/
 /vendor/
+/.vagrant/
