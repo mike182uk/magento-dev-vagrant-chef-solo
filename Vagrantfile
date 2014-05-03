@@ -20,7 +20,7 @@ Vagrant.configure("2") do |config|
     config.vm.hostname = "www.magento.dev"
 
     # Synced folders
-    config.vm.synced_folder "./", "/var/www", type: "nfs"
+    config.vm.synced_folder "./", "/var/www/magento_dev", type: "nfs"
 
     # Provision via chef solo
     config.vm.provision :chef_solo do |chef|
@@ -63,7 +63,7 @@ Vagrant.configure("2") do |config|
                 }
             },
             :xdebug => {
-                :idekey => "magento-dev",
+                :idekey => "magento_dev",
                 :remote_enable => 1,
                 :remote_connect_back => 1
             }

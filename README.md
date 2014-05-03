@@ -17,11 +17,11 @@ Development box configured to run Magento CE.
     - git
     - vim
 - Apache virtual host + MySQL database setup
-    - access via `www.magento.dev` on the host machine
+    - access via `www.magento.dev` or `magento.dev` on the host machine
     - database details:
-        - **database:** magento
-        - **user:** magento
-        - **password:** magento
+        - **database:** magentodb
+        - **user:** magento_user
+        - **password:** magento_pass
     - database can be accessed from the host machine:
         - **host:** 10.10.10.2
         - use user + password above
@@ -30,13 +30,13 @@ Development box configured to run Magento CE.
         - **password:** root
 - Composer installed and available globally
     - Sample `composer.json` includes:
-        - QA + static analysis tools (PHPUnit, PHP_CodeSniffer etc.)
-        - misc magento dev tools (n98-magerun etc.)
+        - QA + static analysis tools (`PHPUnit`, `PHP_CodeSniffer` etc.)
+        - misc magento dev tools (`n98-magerun` etc.)
 - XDebug installed and setup to allow remote debugging
     - To remote debug use the following values in your ide / debugger:
         - **host:** 10.10.10.2
         - **remote port:** 9000
-        - **ide key:** magento-dev
+        - **ide key:** magento_dev
 - Includes script to install **Magento CE 1.8.1.0** + sample data
 
 ## Prerequisites

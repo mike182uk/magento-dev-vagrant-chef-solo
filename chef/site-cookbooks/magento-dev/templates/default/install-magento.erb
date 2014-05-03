@@ -18,7 +18,7 @@ fi
 
 # Unzip magento
 echo "Extracting Magento..."
-tar -zxf /tmp/magento-1.8.1.0.tar.gz -C <%= @params[:docroot].gsub("magento", "") %>
+tar -zxf /tmp/magento-1.8.1.0.tar.gz -C <%= @params[:vhost][:docroot].gsub("magento", "") %>
 
 # Unzip sample data
 echo "Extracting sample data..."
@@ -26,16 +26,16 @@ tar -zxf /tmp/magento-sample-data-1.6.1.0.tar.gz -C /tmp
 
 # Move sample data into correct location
 echo "Moving sample data to correct location..."
-mv /tmp/magento-sample-data-1.6.1.0/media/* <%= @params[:docroot] %>/media/
+mv /tmp/magento-sample-data-1.6.1.0/media/* <%= @params[:vhost][:docroot] %>/media/
 
 # Import sample data SQL
 echo "Executing sample data SQL..."
-mysql -u <%= @params[:db_user] %> -p<%= @params[:db_pass] %> <%= @params[:db_name] %> < /tmp/magento-sample-data-1.6.1.0/magento_sample_data_for_1.6.1.0.sql
+mysql -u <%= @params[:db][:user] %> -p<%= @params[:db][:pass] %> <%= @params[:db][:name] %> < /tmp/magento-sample-data-1.6.1.0/magento_sample_data_for_1.6.1.0.sql
 
 # Set permissions
 echo "Updating permissions..."
-chmod -R o+w <%= @params[:docroot] %>/media <%= @params[:docroot] %>/var
-chmod o+w <%= @params[:docroot] %>/var <%= @params[:docroot] %>/var/.htaccess <%= @params[:docroot] %>/app/etc
+chmod -R o+w <%= @params[:vhost][:docroot] %>/media <%= @params[:vhost][:docroot] %>/var
+chmod o+w <%= @params[:vhost][:docroot] %>/var <%= @params[:vhost][:docroot] %>/var/.htaccess <%= @params[:vhost][:docroot] %>/app/etc
 
 # Clean up
 echo "Cleaning up..."
