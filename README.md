@@ -38,6 +38,11 @@ Development box configured to run Magento CE.
         - **remote port:** 9000
         - **ide key:** magento_dev
 - Includes script to install **Magento CE 1.8.1.0** + sample data
+    - `n98-magerun` used to install magento + sample data
+    - `n98-magerun` configuration settings can be changed in `.n98-magerun.yaml`
+    - default admin user:
+        - **user:** admin
+        - **password:** password123
 
 ## Prerequisites
 
@@ -63,6 +68,8 @@ Development box configured to run Magento CE.
     vagrant plugin install vagrant-hostsupdater
     ```
 
+- [Composer](https://getcomposer.org/)
+
 ## Usage
 
 Install required Ruby Gems:
@@ -77,13 +84,19 @@ Setup and provision the box:
 vagrant up
 ```
 
+Install composer dependencies:
+
+```bash
+composer install
+```
+
 Install Magento CE 1.8.1.0 + sample data
 
 ```bash
 vagrant ssh -c "~/install-magento.sh"
 ```
 
-Navigate to `http://www.magento.dev` to finish setting up Magento.
+You should now be able to access the magento store at `http://www.magento.dev`.
 
 ## Notes
 

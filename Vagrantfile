@@ -45,6 +45,7 @@ Vagrant.configure("2") do |config|
         chef.add_recipe "magento-dev::apache-php-ini"
         chef.add_recipe "magento-dev::vhost"
         chef.add_recipe "magento-dev::db"
+        chef.add_recipe "magento-dev::n98-magerun-config"
         chef.add_recipe "magento-dev::installation-script"
 
         chef.json = {

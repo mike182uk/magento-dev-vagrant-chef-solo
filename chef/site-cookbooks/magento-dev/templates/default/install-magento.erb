@@ -1,44 +1,8 @@
-echo ""
-echo "=================================="
-echo "Magento Installation Script"
-echo "=================================="
-echo ""
 
-# Download magento
-if [ ! -f /tmp/magento-1.8.1.0.tar.gz ]; then
-    echo "Downloading Magento CE..."
-    wget -q -P /tmp http://www.magentocommerce.com/downloads/assets/1.8.1.0/magento-1.8.1.0.tar.gz
+cd <%= @params[:app][:app_path] =%>
+
+if [[ ! -f bin/n98-magerun ]]; then
+    echo "n98-magerun is not installed. Please make sure you have installed the composer dependencies."
 fi
 
-# Download sample data
-if [ ! -f /tmp/magento-sample-data-1.6.1.0.tar.gz ]; then
-    echo "Downloading sample data..."
-    wget -q -P /tmp http://www.magentocommerce.com/downloads/assets/1.6.1.0/magento-sample-data-1.6.1.0.tar.gz
-fi
-
-# Unzip magento
-echo "Extracting Magento..."
-tar -zxf /tmp/magento-1.8.1.0.tar.gz -C <%= @params[:vhost][:docroot].gsub("magento", "") %>
-
-# Unzip sample data
-echo "Extracting sample data..."
-tar -zxf /tmp/magento-sample-data-1.6.1.0.tar.gz -C /tmp
-
-# Move sample data into correct location
-echo "Moving sample data to correct location..."
-mv /tmp/magento-sample-data-1.6.1.0/media/* <%= @params[:vhost][:docroot] %>/media/
-
-# Import sample data SQL
-echo "Executing sample data SQL..."
-mysql -u <%= @params[:db][:user] %> -p<%= @params[:db][:pass] %> <%= @params[:db][:name] %> < /tmp/magento-sample-data-1.6.1.0/magento_sample_data_for_1.6.1.0.sql
-
-# Set permissions
-echo "Updating permissions..."
-chmod -R o+w <%= @params[:vhost][:docroot] %>/media <%= @params[:vhost][:docroot] %>/var
-chmod o+w <%= @params[:vhost][:docroot] %>/var <%= @params[:vhost][:docroot] %>/var/.htaccess <%= @params[:vhost][:docroot] %>/app/etc
-
-# Clean up
-echo "Cleaning up..."
-rm -rf /tmp/magento-sample-data-1.6.1.0/
-
-echo "Done!"
+bin/n98-magerun install --dbHost="localhost" --dbUser="<%= @params[:db][:user] =%>" --dbPass="<%= @params[:db][:pass] =%>" --dbName="<%= @params[:db][:name] =%>" --installSampleData=yes --useDefaultConfigParams=yes --magentoVersionByName="magento-ce-<%= @params[:app][:magento_version] =%>" --installationFolder="<%= @params[:app][:magento_path] =%>" --baseUrl="<%= @params[:app][:base_url] =%>"
