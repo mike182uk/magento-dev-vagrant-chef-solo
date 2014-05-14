@@ -101,6 +101,10 @@ You should now be able to access the magento store at `http://www.magento.dev`.
 
 ## FAQ's
 
+**How can i speed up provisioning?**
+
+At the top of the `Vagrantfile` there is the constant `USE_PRECONFIGURED_LAMP_BOX` which is set to `false` by default. If you set this to `true` a preconfigured LAMP base box will be used instead of a blank ubuntu base box. You should still leave the default recipes in the run list so any config values are set accordingly but any packages that these recipes install will already be installed on the base box speeding up provisioning significantly. You can see more information about the preconfigured base box [here](https://github.com/mike182uk/packer-lamp-vagrant-base-box).
+
 ## Notes
 
 I have only tested this on OS X (10.9). In theory it should work on most operating systems, although Windows will probably have a problem using NFS for synced folders.

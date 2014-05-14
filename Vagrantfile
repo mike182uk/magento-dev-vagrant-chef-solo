@@ -1,3 +1,5 @@
+USE_PRECONFIGURED_LAMP_BOX = false
+
 Vagrant.configure("2") do |config|
     # Virtualbox config
     config.vm.provider :virtualbox do |vb|
@@ -11,8 +13,13 @@ Vagrant.configure("2") do |config|
     config.hostsupdater.remove_on_suspend = true
 
     # Box
-    config.vm.box = "precise64"
-    config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+    if USE_PRECONFIGURED_LAMP_BOX
+        config.vm.box = "lamp-vagrant-chef-solo"
+        config.vm.box_url = "https://dl.dropboxusercontent.com/u/13070740/vagrant-base-boxes/lamp-vagrant-chef-solo.box"
+    else
+        config.vm.box = "precise64"
+        config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+    end
 
     # Networking
     config.vm.network :private_network, ip: "10.10.10.2"
