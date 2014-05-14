@@ -1,4 +1,4 @@
-# Magento dev box with Vagrant and Chef Solo
+# Magento development box with Vagrant and Chef Solo
 
 Development box configured to run Magento CE.
 
@@ -13,10 +13,10 @@ Development box configured to run Magento CE.
     - iconv
     - curl
     - SOAP
-- Other misc packages installed:
+    - apc
+- Other miscellaneous packages installed:
     - git
     - vim
-    - apc
 - Apache virtual host + MySQL database setup
     - access via `www.magento.dev` or `magento.dev` on the host machine
     - database details:
@@ -32,12 +32,12 @@ Development box configured to run Magento CE.
 - Composer installed and available globally
     - Sample `composer.json` includes:
         - QA + static analysis tools (`PHPUnit`, `PHP_CodeSniffer` etc.)
-        - misc magento dev tools (`n98-magerun` etc.)
+        - miscellaneous magento dev tools (`n98-magerun` etc.)
 - XDebug installed and setup to allow remote debugging
     - To remote debug use the following values in your ide / debugger:
         - **host:** 10.10.10.2
         - **remote port:** 9000
-        - **ide key:** magento_dev
+        - **ide key:** *leave blank*
 - Includes script to install **Magento CE 1.8.1.0** + sample data
     - [n98-magerun](https://github.com/netz98/n98-magerun) used to install magento + sample data
     - installation settings can be changed in `.n98-magerun.yaml`
@@ -85,13 +85,13 @@ Setup and provision the box:
 vagrant up
 ```
 
-Install composer dependencies:
+Install composer dependencies (from the VM or host if you have composer installed globally):
 
 ```bash
 composer install --prefer-dist
 ```
 
-Install Magento CE 1.8.1.0 + sample data (make sure you modify the installation settings to suit in `.n98-magerun.yaml` before running this!)
+Install Magento CE 1.8.1.0 + sample data (make sure you modify the installation settings to suit in `.n98-magerun.yaml` before running this)
 
 ```bash
 vagrant ssh -c "~/install-magento.sh"

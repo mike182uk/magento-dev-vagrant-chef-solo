@@ -1,7 +1,6 @@
 Vagrant.configure("2") do |config|
     # Virtualbox config
     config.vm.provider :virtualbox do |vb|
-        # Increase virtual machine memory
         vb.customize ["modifyvm", :id, "--memory", "1024"]
     end
 
@@ -35,14 +34,17 @@ Vagrant.configure("2") do |config|
         chef.add_recipe "apache2"
         chef.add_recipe "apache2::mod_rewrite"
         chef.add_recipe "apache2::mod_alias"
+        chef.add_recipe "apache2::mod_php5"
         chef.add_recipe "mysql::server"
         chef.add_recipe "php"
+        chef.add_recipe "php::module_apc"
+        chef.add_recipe "php::module_curl"
+        chef.add_recipe "php::module_gd"
+        chef.add_recipe "php::module_mcrypt"
         chef.add_recipe "php::module_mysql"
+        chef.add_recipe "php::apache2"
         chef.add_recipe "xdebug"
-        chef.add_recipe "apache2::mod_php5"
         chef.add_recipe "composer"
-        chef.add_recipe "magento-dev::packages"
-        chef.add_recipe "magento-dev::apache-php-ini"
         chef.add_recipe "magento-dev::vhost"
         chef.add_recipe "magento-dev::db"
         chef.add_recipe "magento-dev::n98-magerun-config"
@@ -52,19 +54,16 @@ Vagrant.configure("2") do |config|
             :mysql => {
                 :server_root_password => "root",
                 :server_debian_password => "root",
-                :server_repl_password => "root",
-                :mysql_bin => "/usr/bin/mysql",
-                :bind_address => "0.0.0.0"
+                :server_repl_password => "root"
             },
             :php => {
-                :directives => {
+                :ini_settings => {
                     "date.timezone" => "Europe/London",
                     "memory_limit" => "256M",
                     "safe_mode" => "0"
                 }
             },
             :xdebug => {
-                :idekey => "magento_dev",
                 :remote_enable => 1,
                 :remote_connect_back => 1
             }

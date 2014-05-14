@@ -1,17 +1,18 @@
 SITE
   remote: http://community.opscode.com/api/v1
   specs:
-    apache2 (1.9.6)
+    apache2 (1.10.4)
       iptables (>= 0.0.0)
       logrotate (>= 0.0.0)
       pacman (>= 0.0.0)
-    apt (2.3.8)
-    aws (2.1.0)
-    build-essential (1.4.4)
-    chef_handler (1.1.5)
-    database (2.0.0)
+    apt (2.3.10)
+    aws (2.2.0)
+    build-essential (2.0.2)
+    chef_handler (1.1.6)
+    database (2.2.0)
       aws (>= 0.0.0)
-      mysql (>= 1.3.0)
+      mysql (>= 5.0.0)
+      mysql-chef_gem (>= 0.0.0)
       postgresql (>= 1.0.0)
       xfs (>= 0.0.0)
     dmg (2.2.0)
@@ -22,27 +23,16 @@ SITE
       windows (>= 0.0.0)
       yum (~> 3.0)
       yum-epel (>= 0.0.0)
-    homebrew (1.5.4)
-    iis (2.0.2)
-      windows (>= 1.2.6)
-    iptables (0.12.0)
+    iptables (0.13.2)
     logrotate (1.5.0)
-    mysql (4.1.2)
-      build-essential (~> 1.4)
-      homebrew (>= 0.0.0)
-      openssl (~> 1.1)
-      windows (>= 0.0.0)
+    mysql (5.2.6)
+    mysql-chef_gem (0.0.2)
+      build-essential (>= 0.0.0)
+      mysql (>= 0.0.0)
     openssl (1.1.0)
     pacman (1.1.1)
-    php (1.4.2)
-      build-essential (>= 0.0.0)
-      iis (>= 0.0.0)
-      mysql (>= 0.0.0)
-      windows (>= 0.0.0)
-      xml (>= 0.0.0)
-      yum-epel (>= 0.0.0)
-    postgresql (3.3.4)
-      apt (>= 0.0.0)
+    postgresql (3.4.0)
+      apt (>= 1.9.0)
       build-essential (>= 0.0.0)
       openssl (>= 0.0.0)
     runit (1.5.10)
@@ -50,22 +40,36 @@ SITE
       yum (~> 3.0)
       yum-epel (>= 0.0.0)
     vim (1.1.2)
-    windows (1.30.0)
+    windows (1.31.0)
       chef_handler (>= 0.0.0)
     xfs (1.1.0)
-    xml (1.2.2)
+    xml (1.2.4)
       build-essential (>= 0.0.0)
-    yum (3.1.2)
-    yum-epel (0.3.4)
+    yum (3.2.0)
+    yum-epel (0.3.6)
       yum (~> 3.0)
+    yumrepo (2.0.0)
+      yum (>= 2.3.0)
 
 GIT
   remote: https://github.com/escapestudios-cookbooks/xdebug
   ref: master
-  sha: 5f53e20d49c9e6013088e28d4cdc69edac156dd9
+  sha: 5ebdea2dcdd4ccaec7e03019cfaf4e46ab8cf1dd
   specs:
     xdebug (0.0.1)
       php (>= 0.0.0)
+
+GIT
+  remote: https://github.com/priestjim/chef-php
+  ref: master
+  sha: 74cde12df5699ad7454b85ea77d9662d742660cb
+  specs:
+    php (1.2.0)
+      apt (>= 0.0.0)
+      build-essential (>= 0.0.0)
+      xml (>= 0.0.0)
+      yum (>= 0.0.0)
+      yumrepo (>= 0.0.0)
 
 GIT
   remote: https://github.com/zircote/chef-composer

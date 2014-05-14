@@ -4,10 +4,8 @@ cookbook "apt"
 cookbook "git"
 cookbook "vim"
 cookbook "apache2"
-cookbook "php"
 cookbook "mysql"
 cookbook "database"
-cookbook "xdebug",
-    :git => "https://github.com/escapestudios-cookbooks/xdebug"
-cookbook "composer",
-    :git => "https://github.com/zircote/chef-composer"
+cookbook "php", :git => "https://github.com/priestjim/chef-php"
+cookbook "composer", :git => "https://github.com/zircote/chef-composer"
+cookbook "xdebug", :git => "https://github.com/escapestudios-cookbooks/xdebug"
