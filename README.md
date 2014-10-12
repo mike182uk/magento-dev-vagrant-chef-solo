@@ -38,7 +38,7 @@ Development box configured to run Magento CE.
         - **host:** 10.10.10.2
         - **remote port:** 9000
         - **ide key:** *leave blank*
-- Includes script to install **Magento CE 1.8.1.0** + sample data
+- Includes script to install **Magento CE 1.9.0.1** + sample data
     - [n98-magerun](https://github.com/netz98/n98-magerun) used to install magento + sample data
     - installation settings can be changed in `.n98-magerun.yaml`
     - default admin user:
@@ -91,7 +91,7 @@ Install composer dependencies (from the VM or host if you have composer installe
 composer install --prefer-dist
 ```
 
-Install Magento CE 1.8.1.0 + sample data (make sure you modify the installation settings to suit in `.n98-magerun.yaml` before running this)
+Install Magento CE 1.9.0.1 + sample data (make sure you modify the installation settings to suit in `.n98-magerun.yaml` before running this)
 
 ```bash
 vagrant ssh -c "~/install-magento.sh"
