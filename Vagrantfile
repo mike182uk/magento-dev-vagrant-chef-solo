@@ -66,7 +66,7 @@ Vagrant.configure("2") do |config|
             :php => {
                 :ini_settings => {
                     "date.timezone" => "Europe/London",
-                    "memory_limit" => "256M",
+                    "memory_limit" => "512M",
                     "safe_mode" => "0"
                 }
             },
