@@ -1,19 +1,20 @@
 {
     "require-dev": {
-        "phpunit/phpunit": "4.2.*@dev",
-        "sebastian/phpcpd": "2.0.*@dev",
-        "sebastian/phpdcd": "1.0.*@dev",
-        "phpmd/phpmd": "2.0.0.*@dev",
-        "phploc/phploc": "2.1.*@dev",
-        "squizlabs/php_codesniffer": "2.0.*@dev",
-        "pdepend/pdepend": "2.0.0.*@dev",
-        "phpspec/phpspec": "2.0.*",
-        "fabpot/php-cs-fixer": "0.4.*@dev",
-        "theseer/phpdox": "0.5.*@dev",
-        "n98/magerun": "dev-develop",
-        "punkstar/mageconfigsync": "dev-develop"
+        "phpunit/phpunit": "~4.0",
+        "sebastian/phpcpd": "~2.0",
+        "sebastian/phpdcd": "~1.0",
+        "phpmd/phpmd": "~2.0",
+        "phploc/phploc": "~2.0",
+        "squizlabs/php_codesniffer": "~2.0",
+        "pdepend/pdepend": "~2.0",
+        "phpspec/phpspec": "~2.0",
+        "fabpot/php-cs-fixer": "~1.0",
+        "theseer/phpdox": "~0.0",
+        "behat/behat": "~3.0",
+        "composer/composer": "1.0.*@dev",
+        "n98/magerun": "~1.0",
+        "punkstar/mageconfigsync": "~0.0"
     },
-    "minimum-stability": "dev",
     "config": {
        "bin-dir": "bin"
     }
