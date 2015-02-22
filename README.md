@@ -60,12 +60,6 @@ Development box configured to run Magento CE.
 
 ##Usage
 
-Install required Ruby Gems:
-
-```bash
-bundle install
-```
-
 Setup and provision the box:
 
 ```bash
