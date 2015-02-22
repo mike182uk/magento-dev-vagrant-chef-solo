@@ -32,7 +32,7 @@ Development box configured to run Magento CE.
     - QA + static analysis tools (`PHPUnit`, `PHP_CodeSniffer` etc.)
     - miscellaneous magento dev tools (`n98-magerun` etc.)
 - XDebug installed and setup to allow remote debugging
-- Includes script to install **Magento CE 1.9.0.1** + sample data
+- Includes script to install **Magento CE 1.9.1.0** + sample data
     - [n98-magerun](https://github.com/netz98/n98-magerun) used to install magento + sample data
     - installation settings can be changed in `.n98-magerun.yaml`
     - default admin user:
@@ -78,7 +78,7 @@ Install composer dependencies (from the host):
 composer install --prefer-dist
 ```
 
-Install Magento CE 1.9.0.1 + sample data (make sure you modify the installation settings to suit in `.n98-magerun.yaml` before running this)
+Install Magento CE 1.9.1.0 + sample data (make sure you modify the installation settings to suit in `.n98-magerun.yaml` before running this)
 
 ```bash
 vagrant ssh -c "~/install-magento.sh"
