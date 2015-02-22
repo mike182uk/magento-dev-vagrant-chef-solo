@@ -1,8 +1,7 @@
-
 cd <%= @params[:app][:app_path] =%>
 
 if [[ ! -f bin/n98-magerun ]]; then
     echo "n98-magerun is not installed. Please make sure you have installed the composer dependencies."
 fi
 
-bin/n98-magerun install --dbHost="localhost" --dbUser="<%= @params[:db][:user] =%>" --dbPass="<%= @params[:db][:pass] =%>" --dbName="<%= @params[:db][:name] =%>" --installSampleData=yes --useDefaultConfigParams=yes --magentoVersionByName="magento-ce-<%= @params[:app][:magento_version] =%>" --installationFolder="<%= @params[:app][:magento_path] =%>" --baseUrl="<%= @params[:app][:base_url] =%>"
+php -d memory_limit=1024M bin/n98-magerun install --dbHost="127.0.0.1" --dbUser="<%= @params[:db][:user] =%>" --dbPass="<%= @params[:db][:pass] =%>" --dbName="<%= @params[:db][:name] =%>" --installSampleData=yes --useDefaultConfigParams=yes --magentoVersionByName="magento-ce-<%= @params[:app][:magento_version] =%>" --installationFolder="<%= @params[:app][:magento_path] =%>" --baseUrl="<%= @params[:app][:base_url] =%>"
