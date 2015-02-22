@@ -1,9 +1,7 @@
-include_recipe "database::mysql"
-
 mysql_connection = {
-    :host     => "localhost",
+    :host => "127.0.0.1",
     :username => "root",
-    :password => node["mysql"]["server_root_password"]
+    :password => "root"
 }
 
 # Create database

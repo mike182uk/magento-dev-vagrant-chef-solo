@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
     # Vagrant plugins config
     config.cache.scope = :box
     config.omnibus.chef_version = :latest
-    config.librarian_chef.cheffile_dir = "chef"
+    config.berkshelf.enabled = true
     config.hostsupdater.remove_on_suspend = true
 
     # Box
@@ -31,18 +31,16 @@ Vagrant.configure("2") do |config|
     # Provision via chef solo
     config.vm.provision :chef_solo do |chef|
         chef.cookbooks_path = [
-            "chef/cookbooks",
-            "chef/site-cookbooks"
+            "chef/cookbooks"
         ]
 
         chef.add_recipe "apt"
-        chef.add_recipe "git"
         chef.add_recipe "vim"
         chef.add_recipe "apache2"
         chef.add_recipe "apache2::mod_rewrite"
         chef.add_recipe "apache2::mod_alias"
         chef.add_recipe "apache2::mod_php5"
-        chef.add_recipe "mysql::server"
+        chef.add_recipe "base::mysql"
         chef.add_recipe "php"
         chef.add_recipe "php::module_apc"
         chef.add_recipe "php::module_curl"
@@ -51,28 +49,27 @@ Vagrant.configure("2") do |config|
         chef.add_recipe "php::module_mysql"
         chef.add_recipe "php::apache2"
         chef.add_recipe "xdebug"
-        chef.add_recipe "composer"
         chef.add_recipe "magento-dev::vhost"
         chef.add_recipe "magento-dev::db"
         chef.add_recipe "magento-dev::n98-magerun-config"
         chef.add_recipe "magento-dev::installation-script"
 
         chef.json = {
-            :mysql => {
-                :server_root_password => "root",
-                :server_debian_password => "root",
-                :server_repl_password => "root"
-            },
-            :php => {
-                :ini_settings => {
+            "php" => {
+                "ini_settings" => {
                     "date.timezone" => "Europe/London",
                     "memory_limit" => "512M",
                     "safe_mode" => "0"
                 }
             },
-            :xdebug => {
-                :remote_enable => 1,
-                :remote_connect_back => 1
+            "xdebug" => {
+                "config_file" => "/etc/php5/conf.d/xdebug.ini",
+                "directives" => {
+                    "remote_autostart" => 1,
+                    "remote_connect_back" => 1,
+                    "remote_enable" => 1,
+                    "remote_log" => "/tmp/xdebug-remote.log"
+                }
             }
         }
     end

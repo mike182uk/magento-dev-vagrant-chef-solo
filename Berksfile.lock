@@ -1,0 +1,75 @@
+DEPENDENCIES
+  apache2
+  apt
+  base
+    path: chef/cookbooks/base
+  database (~> 4.0.3)
+  magento-dev
+    path: chef/cookbooks/magento-dev
+  mysql (~> 6.0)
+  mysql2_chef_gem (~> 1.0.1)
+  php
+    git: https://github.com/priestjim/chef-php
+    revision: d239d419f3ae0c6da0ff57939dabdbe253715729
+  vim
+  xdebug
+    git: https://github.com/escapestudios-cookbooks/xdebug
+    revision: ccb06d2839a466d86ec2cde51bd45af9dfb90512
+
+GRAPH
+  apache2 (3.0.1)
+    iptables (>= 0.0.0)
+    logrotate (>= 0.0.0)
+  apt (2.6.1)
+  base (0.1.0)
+    mysql (~> 6.0)
+    mysql2_chef_gem (~> 1.0)
+  build-essential (2.1.3)
+  chef-sugar (2.5.0)
+  database (4.0.3)
+    postgresql (>= 1.0.0)
+  iptables (0.14.1)
+  logrotate (1.8.0)
+  magento-dev (0.1.0)
+    apache2 (>= 0.0.0)
+    base (>= 0.0.0)
+    database (>= 0.0.0)
+  mariadb (0.2.12)
+    apt (>= 0.0.0)
+    yum (>= 0.0.0)
+    yum-epel (>= 0.0.0)
+  mysql (6.0.13)
+    smf (>= 0.0.0)
+    yum-mysql-community (>= 0.0.0)
+  mysql2_chef_gem (1.0.1)
+    build-essential (>= 0.0.0)
+    mariadb (>= 0.0.0)
+    mysql (>= 0.0.0)
+  openssl (4.0.0)
+    chef-sugar (>= 0.0.0)
+  php (1.2.3)
+    apt (>= 0.0.0)
+    build-essential (>= 0.0.0)
+    xml (>= 0.0.0)
+    yum (>= 0.0.0)
+  postgresql (3.4.16)
+    apt (>= 1.9.0)
+    build-essential (>= 0.0.0)
+    openssl (>= 0.0.0)
+  rbac (1.0.2)
+  resource-control (0.1.1)
+  smf (2.2.1)
+    rbac (>= 1.0.1)
+    resource-control (>= 0.0.0)
+  vim (1.1.2)
+  xdebug (1.0.0)
+    build-essential (>= 0.0.0)
+    php (>= 0.0.0)
+  xml (1.2.13)
+    build-essential (>= 0.0.0)
+    chef-sugar (>= 0.0.0)
+  yum (3.5.3)
+  yum-epel (0.6.0)
+    yum (~> 3.0)
+  yum-mysql-community (0.1.13)
+    yum (>= 3.0)
