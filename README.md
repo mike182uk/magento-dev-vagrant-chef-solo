@@ -2,7 +2,7 @@
 
 Development box configured to run Magento CE.
 
-- Ubuntu 12.04 LTS
+- Ubuntu 14.04 LTS
 - All Magento CE [required PHP extensions](http://magento.com/resources/system-requirements) installed:
     - PDO_MySQL
     - simplexml
@@ -13,7 +13,6 @@ Development box configured to run Magento CE.
     - iconv
     - curl
     - SOAP
-    - apc
 - Other miscellaneous packages installed:
     - vim
 - Apache virtual host + MySQL database setup
@@ -46,7 +45,7 @@ Development box configured to run Magento CE.
 - [Vagrant](http://www.vagrantup.com/) >=1.5 with the following plugins installed:
     - [vagrant-cachier](https://github.com/fgrehm/vagrant-cachier)
     - [vagrant-ombnibus](https://github.com/schisamo/vagrant-omnibus)
-    - [vagrant-berkshelf](https://github.com/berkshelf/vagrant-berkshelf) - Installs cookbooks listed in `Berksfile`
+    - [vagrant-berkshelf](https://github.com/berkshelf/vagrant-berkshelf)
     - [vagrant-vbguest](https://github.com/dotless-de/vagrant-vbguest)
     - [vagrant-hostsupdater](https://github.com/cogitatio/vagrant-hostsupdater)
     ```bash

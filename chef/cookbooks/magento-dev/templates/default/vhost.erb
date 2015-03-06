@@ -7,8 +7,7 @@
     <Directory <%= @params[:docroot] %>>
         # enable the .htaccess rewrites
         AllowOverride All
-        Order allow,deny
-        Allow from All
+        Require all granted
     </Directory>
 
     ErrorLog /var/log/apache2/error.log
