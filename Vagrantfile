@@ -3,7 +3,7 @@ USE_PRECONFIGURED_LAMP_BOX = false
 Vagrant.configure("2") do |config|
     # Virtualbox config
     config.vm.provider :virtualbox do |vb|
-        vb.customize ["modifyvm", :id, "--memory", "1024"]
+        vb.customize ["modifyvm", :id, "--memory", "2048"]
     end
 
     # Vagrant plugins config
