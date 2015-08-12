@@ -3,7 +3,7 @@ default["magento_dev"]["app"]["name"] = "magento_dev"
 default["magento_dev"]["app"]["app_path"] = "/var/www/magento_dev"
 default["magento_dev"]["app"]["magento_path"] = "/var/www/magento_dev/magento"
 default["magento_dev"]["app"]["base_url"] = "www.magento.dev"
-default["magento_dev"]["app"]["magento_version"] = "1.9.1.0"
+default["magento_dev"]["app"]["magento_version"] = "1.9.2.1"
 
 # vhost attributes
 default["magento_dev"]["vhost"]["server_name"] = default["magento_dev"]["app"]["base_url"]
